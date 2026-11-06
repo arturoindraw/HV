@@ -1,0 +1,18 @@
+{
+  "models": [
+    {
+      "title": "OpenRouter Free",
+      "provider": "openai",
+      "model": "deepseek/deepseek-chat",
+      "apiKey": "${env:OPENROUTER_API_KEY}",
+      "apiBase": "https://openrouter.ai/api/v1"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "OpenRouter Free",
+    "provider": "openai",
+    "model": "deepseek/deepseek-chat",
+    "apiKey": "${env:OPENROUTER_API_KEY}",
+    "apiBase": "https://openrouter.ai/api/v1"
+  }
+}
