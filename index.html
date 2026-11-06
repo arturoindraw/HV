@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Portfolio - Carlos Arturo Rodriguez</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/mini.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --bg: #0f0f23;
+            --bg-secondary: #1a1a3a;
+            --card: #16213e;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #3b4a5e;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .hero-badge i {
+            color: var(--primary);
+        }
+
+        .hero-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-name .highlight {
+            color: var(--primary);
+        }
+
+        .hero-title {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            text-align: justify;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .section-title i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text ul {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .about-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        .about-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-skill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .about-skill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-left: 1px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            border-left: none;
+            padding-bottom: 0;
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-role {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-tasks li {
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-tasks li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .skill-card h4 {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .education-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .education-card h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .education-card p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: var(--border);
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h4 {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            background: var(--border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--primary);
+        }
+
+        .contact-method i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .contact-method a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-method a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: justify;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            margin: 0 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Background pattern */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: fixed;
+            border: 1px solid var(--border);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { translate
+                -30px, 30px) rotate(240deg); }
+        }
+
+        /* Reduced motion for shapes */
+        @media (prefers-reduced-motion: reduce) {
+            .floating-shape {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">CA</div>
+                <span>Carlos Arturo</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Acerca de</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#education">Educación</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-briefcase"></i> Consultor Profesional
+            </div>
+            <h1 class="hero-name">
+                <span class="highlight">Carlos</span> Arturo Rodriguez
+            </h1>
+            <p class="hero-title">
+                Consultor de Transformación Digital | IA &amp; Automatización | AI Dev | Real Estate
+            </p>
+            <p class="hero-description">
+                Lider comercial y TECNOLOGO INDUSTRIAL con amplia experiencia en dirección de equipos y expansión de mercados. Historial comprobado como número 1 en ventas inmobiliarias y formador de redes comerciales de alto rendimiento (60+ agentes y apertura de sedes). Especialista en la creación de flujos de trabajo automatizados y desarrollo ágil sin código (Vibe Coding y arquitecturas con agentes de IA). Enfocado en escalar operaciones comerciales y digitales.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">17+</div>
+                    <div class="hero-stat-label">Años de Experiencia</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">120+</div>
+                    <div class="hero-stat-label">Transacciones Inmobiliarias</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">80%</div>
+                    <div class="hero-stat-label"> Reclutador y Capacitador</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="about" class="section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Sobre Mi</h3>
+                    <p>
+                        Tecnólogo Industrial con 17 años de experiencia probada en ventas, asesoría comercial, gestión de equipos comerciales y análisis de datos. Especializado en inmobiliaria, logística, marketing digital y soluciones con IA. Experto en liderazgo de equipos de vendedores, negociación B2B, generación de leads, automatización de procesos con IA, diseño web sin código y desarrollo de estrategias comerciales de alto impacto.
+                    </p>
+                    <ul>
+                        <li>Disponibilidad inmediata para roles full-time, hybrid o remoto</li>
+                        <li>Áreas principales: Comercial/Ventas, Administración, Marketing Digital, Gestión de Procesos</li>
+                        <li>Rango salarial: Mínimo $2.500.000 COP + comisiones</li>
+                        <li>Disposición a viajar y mudarse dentro de Colombia</li>
+                    </ul>
+                    <div class="about-skills">
+                        <span class="about-skill">Diseño Web sin Código</span>
+                        <span class="about-skill">Marketing Digital</span>
+                        <span class="about-skill">Edición de Video</span>
+                        <span class="about-skill">Automatización IA</span>
+                        <span class="about-skill">Gestión de Proyectos</span>
+                        <span class="about-skill">Liderazgo Comercial</span>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img class="about-photo" src="carlos-arturo.png" alt="Carlos Arturo Rodriguez">
+                    <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.875rem;">Consultor de Transformación Digital | IA &amp; Automatización | AI Dev | Real Estate</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <h2 class="section-title">
+                <i class="fas fa-timeline"></i> Experiencia Profesional
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 2020 - Hoy</div>
+                    <div class="timeline-company">Agente Inmobiliario Independiente y Diseñador de Websites | Eje Habitat | Bigermark</div>
+                    <div class="timeline-role">Pereira, Risaralda | Colombia</div>
+                    <ul class="timeline-tasks">
+                        <li>Consultoría en gestión de leads, automatización de agentes (chatbot con IA) y diseño de sitios web</li>
+                        <li>Creación y gestión de plataforma web para promoción de inmuebles</li>
+                        <li>Captación de compradores mediante campañas, visitas y estrategias de marketing usando IA</li>
+                        <li>Creación de contenido para uso en redes sociales</li>
+                        <li>Integración de herramientas de CRM, chatbots y automatización con IA</li>
+                        <li>Generación de embudos de ventas y optimización de tasas de conversión</li>
+                        <li>Venta de propiedades residenciales y comerciales en la región del Eje Cafetero</li>
+                        <li>Asesoría a vendedores y compradores en procesos de transacción inmobiliaria</li>
+                        <li>Alianzas estratégicas con partners inmobiliarios locales</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Ago 2017 - Jun 2018</div>
+                    <div class="timeline-company">CEO Proptech | Houssit</div>
+                    <div class="timeline-role">Montería, Colombia</div>
+                    <ul class="timeline-tasks">
+                        <li>Fundación y dirección ejecutiva de plataforma inmobiliaria digital (proptech)</li>
+                        <li>Desarrollo de estrategias de captación de leads y optimización de conversiones</li>
+                        <li>Gestión de equipo multidisciplinario para desarrollo y operación de plataforma</li>
+                        <li>Implementación de soluciones de automatización e integración con IA</li>
+                        <li>Creación de contenido visual: videos con drones, fotografía y edición profesional</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Abr 2013 - Dic 2015</div>
+                    <div class="timeline-company">Gerente de Oficina y Socio | Century 21 Metrosabana y C21 Cartagena</div>
+                    <div class="timeline-role">Montería, Córdoba</div>
+                    <ul class="timeline-tasks">
+                        <li>Montaje y administración de oficina inmobiliaria franquiciada</li>
+                        <li>Capacitación y motivación de agentes inmobiliarios para cumplimiento de metas</li>
+                        <li>Control de inventarios de propiedades en venta y seguimiento de cierres</li>
+                        <li>Gestión de proyectos inmobiliarios con constructoras locales</li>
+                        <li>Avalúos urbanos y consultoría en transacciones inmobiliarias</li>
+                        <li>Apertura de 5 oficinas inmobiliarias C21</li>
+                        <li>Capacitador de +60 agentes y director de 2 agencias de bienes raíces</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2009 - Feb 2013</div>
+                    <div class="timeline-company">Asesor Comercial Inmobiliario | Araujo & Segovia S.A.</div>
+                    <div class="timeline-role">Montería, Córdoba</div>
+                    <ul class="timeline-tasks">
+                        <li>Prospección, captación y cierre de ventas de inmuebles</li>
+                        <li>Identificación y selección de propiedades para venta y arrendamiento</li>
+                        <li>Mejor vendedor en múltiples períodos consecutivos</li>
+                        <li>Asesoramiento jurídico y técnico a clientes en procesos de cierre</li>
+                        <li>Gestión de proyectos residenciales y comerciales</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 2009 - May 2009</div>
+                    <div class="timeline-company">Coordinador Logístico de Despachos | Textrón S.A.</div>
+                    <div class="timeline-role">Bogotá D.C.</div>
+                    <ul class="timeline-tasks">
+                        <li>Coordinación de despachos de carga nacional</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2 class="section-title">
+                <i class="fas fa-wrench"></i> Habilidades y Competencias
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Habilidades Comerciales</h4>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Marketing Digital</h4>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Diseño Web</h4>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Edición de Video</h4>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Automatización IA</h4>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Gestión de Proyectos</h4>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Liderazgo de Equipos</h4>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Análisis de Datos</h4>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i> Formación Académica
+            </h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h4>Tecnólogo Industrial</h4>
+                    <p>Universidad Tecnológica de Pereira | Graduado: Noviembre 1998</p>
+                    <p>Formación integral en administración de empresas, procesos industriales y gestión de proyectos.</p>
+                </div>
+                <div class="education-card">
+                    <h4>Capacitaciones Profesionales</h4>
+                    <p>
+                        <strong>Digital y Marketing:</strong> Community Manager y Marketing en Redes Sociales (SENA), ChatGPT y automatización con IA, Power BI - Análisis de datos avanzado, Programa Mercadeo Total de Proyectos de Construcción (SENA, septiembre 2010)
+                    </p>
+                    <p>
+                        <strong>Inmobiliaria y Gestión:</strong> Diplomado Gerente y Agente Inmobiliario (Century 21 Colombia), Seminario Integral de Avalúos (Corpolonjas de Colombia), Gerencia de Procesos y Norma ISO 9001 (Cemiot S.A.)
+                    </p>
+                    <p>
+                        <strong>Ofimática y Tecnología:</strong> Excel avanzado y ofimática (SENA), Inglés B1 (SENA, febrero - noviembre 2022)
+                    </p>
+                </div>
+                <div class="education-card">
+                    <h4>Certificaciones Adicionales</h4>
+                    <p>Certificaciones en herramientas clave: HubSpot CRM, Dominio de plataformas WordPress, Elementor, Wix, Canva y Figma.</p>
+                    <p>Manejo de automatización: Make, n8n, Google Workspace y ChatGPT API.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title">
+                <i class="fas fa-project-diagram"></i> Proyectos Destacados
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/modelos.png" alt="Desarrollo Web" style="width:100%;height:180px;object-fit:cover;">
+                    </div>
+                    <div class="project-info">
+                        <h4>Desarrollo Web</h4>
+                        <p>Sitios web corporativos y de presencia digital con integración de herramientas de automatización y gestión de contenido.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">WordPress</span>
+                            <span class="project-tag">CRM</span>
+                            <span class="project-tag">IA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/flujos_p.jpg" alt="Desarrollo Web" style="width:100%;height:180px;object-fit:cover;">
+                    </div>
+                    <div class="project-info">
+                        <h4>Automatizaciones y Agentes</h4>
+                        <p>Automatización de procesos de captación, seguimiento de leads e integración de chatbots con IA para diversas industrias.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Make</span>
+                            <span class="project-tag">n8n</span>
+                            <span class="project-tag">IA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/edita_videos.jpg" alt="Desarrollo Web" style="width:100%;height:180px;object-fit:cover;">
+                    </div>
+                    <div class="project-info">
+                        <h4>Videos para Redes Sociales</h4>
+                        <p>Creación y edición de contenido video para plataformas sociales con diseño optimado para engagement y alcance.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">CapCut</span>
+                            <span class="project-tag">Adobe Suite</span>
+                            <span class="project-tag">Drone</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="contact-content">
+                <h3><i class="fas fa-envelope"></i> Contacto</h3>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <a href="mailto:artunegocio@gmail.com">artunegocio@gmail.com</a>
+                        <p>Email principal</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <a href="tel:+573122977712">+57 312 297 7712</a>
+                        <p>Línea directa</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <a href="#">Pereira, Risaralda, Colombia</a>
+                        <p>Ubicación</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <a href="https://www.linkedin.com/in/carlos-ia/" target="_blank">LinkedIn Profile</a>
+                        <p>Redes Profesionales</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <a href="https://www.bigermark.online/" target="_blank">bigermark.online</a>
+                        <p>Portafolio Web</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border);">
+        <p>CV Portfolio Interactivo - Carlos Arturo Rodriguez | 2026</p>
+        <p>Generado con tecnología web moderna | Dashboard interactivo</p>
+        <p>
+            <a href="https://www.linkedin.com/in/carlos-ia/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/carlos-ia/</a>
+            <a href="https://www.bigermark.online" target="_blank" rel="noopener noreferrer">https://www.bigermark.online</a>
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        const nav = document.querySelector('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(15, 15, 35, 0.95)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 35, 0.8)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Active navigation link based on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
