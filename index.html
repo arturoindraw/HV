@@ -295,65 +295,183 @@
         }
 
         /* Experience Section */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
+        #experience .experience-list {
+            display: grid;
+            gap: 0.85rem;
+            list-style: none;
+            margin: 0 auto;
+            max-width: 860px;
+            padding: 0;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(var(--primary), var(--secondary));
+        #experience .experience-card {
+            align-items: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            padding: 1.15rem 1.3rem;
+            text-align: left;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+            width: 100%;
         }
 
-        .timeline-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-left: 1px solid var(--border);
+        #experience .experience-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
         }
 
-        .timeline-item:last-child {
-            border-left: none;
+        #experience .experience-card:focus-visible,
+        #experience .experience-modal-close:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+        }
+
+        #experience .experience-card-copy {
+            display: grid;
+            gap: 0.3rem;
+        }
+
+        #experience .experience-card-title {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        #experience .experience-card-company,
+        #experience .experience-card-period {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        #experience .experience-indicator {
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--primary);
+            display: inline-flex;
+            flex: 0 0 2rem;
+            font-size: 1.2rem;
+            height: 2rem;
+            justify-content: center;
+            line-height: 1;
+            width: 2rem;
+        }
+
+        #experience .experience-modal {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+            color: var(--text);
+            margin: auto;
+            max-height: calc(100vh - 2rem);
+            max-width: 700px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            width: calc(100% - 2rem);
+        }
+
+        #experience .experience-modal::backdrop {
+            background: rgba(5, 5, 20, 0.78);
+            backdrop-filter: blur(4px);
+        }
+
+        #experience .experience-modal-header {
+            align-items: flex-start;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+        }
+
+        #experience .experience-modal-title {
+            color: var(--primary);
+            font-size: 1.35rem;
+            margin: 0;
+        }
+
+        #experience .experience-modal-company,
+        #experience .experience-modal-period {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0.35rem 0 0;
+        }
+
+        #experience .experience-modal-close {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            flex: 0 0 2.5rem;
+            font-size: 1.4rem;
+            height: 2.5rem;
+            line-height: 1;
+            width: 2.5rem;
+        }
+
+        #experience .experience-detail {
+            border-bottom: 1px solid var(--border);
+            padding: 1.15rem 0;
+        }
+
+        #experience .experience-detail:last-child {
+            border-bottom: 0;
             padding-bottom: 0;
         }
 
-        .timeline-date {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-company {
-            font-weight: 600;
+        #experience .experience-detail h3 {
             color: var(--primary);
             font-size: 1rem;
-            margin-bottom: 0.25rem;
+            margin: 0 0 0.35rem;
         }
 
-        .timeline-role {
+        #experience .experience-detail-meta {
             color: var(--text-muted);
             font-size: 0.875rem;
-            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            margin: 0 0 0.75rem;
         }
 
-        .timeline-tasks li {
+        #experience .experience-tasks {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #experience .experience-tasks li {
             color: var(--text);
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
+            line-height: 1.7;
+            margin-top: 0.4rem;
+            padding-left: 1.25rem;
             position: relative;
-            padding-left: 1.5rem;
         }
 
-        .timeline-tasks li::before {
-            content: '✓';
-            position: absolute;
+        #experience .experience-tasks li::before {
+            background: var(--primary);
+            border-radius: 50%;
+            content: '';
+            height: 0.4rem;
             left: 0;
-            color: var(--primary);
-            font-weight: bold;
+            position: absolute;
+            top: 0.65rem;
+            width: 0.4rem;
+        }
+
+        @media (max-width: 600px) {
+            #experience .experience-card {
+                padding: 1rem;
+            }
+
+            #experience .experience-modal {
+                padding: 1.15rem;
+            }
         }
 
         /* Skills Section */
@@ -700,70 +818,227 @@
             <h2 class="section-title">
                 <i class="fas fa-timeline"></i> Experiencia Profesional
             </h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2020 - Hoy</div>
-                    <div class="timeline-company">Agente Inmobiliario Independiente y Diseñador de Websites | Eje Habitat | Bigermark</div>
-                    <div class="timeline-role">Pereira, Risaralda | Colombia</div>
-                    <ul class="timeline-tasks">
-                        <li>Consultoría en gestión de leads, automatización de agentes (chatbot con IA) y diseño de sitios web</li>
-                        <li>Creación y gestión de plataforma web para promoción de inmuebles</li>
-                        <li>Captación de compradores mediante campañas, visitas y estrategias de marketing usando IA</li>
-                        <li>Creación de contenido para uso en redes sociales</li>
-                        <li>Integración de herramientas de CRM, chatbots y automatización con IA</li>
-                        <li>Generación de embudos de ventas y optimización de tasas de conversión</li>
-                        <li>Venta de propiedades residenciales y comerciales en la región del Eje Cafetero</li>
-                        <li>Asesoría a vendedores y compradores en procesos de transacción inmobiliaria</li>
-                        <li>Alianzas estratégicas con partners inmobiliarios locales</li>
-                    </ul>
+            <ul class="experience-list">
+                <li class="experience-entry">
+                    <button class="experience-card" type="button" data-experience-trigger aria-haspopup="dialog" aria-controls="experience-dialog" data-title="Cargos Anteriores" data-company="Varias empresas" data-period="Marzo 1998 - Mayo 2009">
+                        <span class="experience-card-copy">
+                            <span class="experience-card-title">Cargos Anteriores</span>
+                            <span class="experience-card-company">Varias empresas</span>
+                            <span class="experience-card-period">Marzo 1998 - Mayo 2009</span>
+                        </span>
+                        <span class="experience-indicator" aria-hidden="true">+</span>
+                    </button>
+                    <template>
+                        <article class="experience-detail">
+                            <h3>Coordinador H.S.E.Q.</h3>
+                            <p class="experience-detail-meta">Big Company Services LTDA | Marzo 1998 - Febrero 1999 (1 año 1 mes) | Bogotá D.C.</p>
+                            <ul class="experience-tasks">
+                                <li>Programa de seguridad industrial en toda la empresa (+700 trabajadores)</li>
+                                <li>Control de ausentismos y elementos de protección personal</li>
+                                <li>Indicadores</li>
+                            </ul>
+                        </article>
+                        <article class="experience-detail">
+                            <h3>Auxiliar de Talento Humano</h3>
+                            <p class="experience-detail-meta">Pimpollo S.A. | Septiembre 1999 - Abril 2001 (1 año 8 meses) | Pereira, Risaralda</p>
+                            <ul class="experience-tasks">
+                                <li>Gestión de personal en granjas de engorde, salud ocupacional y seguridad industrial</li>
+                            </ul>
+                        </article>
+                        <article class="experience-detail">
+                            <h3>Supervisor Tecnólogo</h3>
+                            <p class="experience-detail-meta">Confecciones Lord S.A. | Enero 2002 - Junio 2002 (6 meses) | Barranquilla, Atlántico</p>
+                            <ul class="experience-tasks">
+                                <li>Manejo de producción modular en módulo de ensamble de pantalón (36 operarias a cargo)</li>
+                            </ul>
+                        </article>
+                        <article class="experience-detail">
+                            <h3>Facilitador Comercial</h3>
+                            <p class="experience-detail-meta">Servientrega S.A. | Marzo 2003 - Marzo 2007 (4 años 1 mes) | Pereira, Risaralda</p>
+                            <ul class="experience-tasks">
+                                <li>Prospección de clientes corporativos generadores de carga</li>
+                                <li>Negociación y desarrollo comercial de nuevas cuentas</li>
+                                <li>Cumplimiento de metas y objetivos de ventas</li>
+                                <li>Manejo de indicadores de gestión y elaboración de reportes</li>
+                                <li>Coordinación de recogidas de mercancía y satisfacción del cliente</li>
+                            </ul>
+                        </article>
+                        <article class="experience-detail">
+                            <h3>Auxiliar de Administración</h3>
+                            <p class="experience-detail-meta">Servientrega S.A. | Octubre 2003 - Agosto 2006 (2 años 10 meses) | Pereira, Risaralda</p>
+                            <ul class="experience-tasks">
+                                <li>Escaneo y digitalización de más de 15.000 pruebas de entrega diariamente</li>
+                                <li>Garantía del 100% de digitalización y cargue a sistemas públicos de la empresa</li>
+                                <li>Gestión de turnos y coordinación de equipo nocturno</li>
+                            </ul>
+                        </article>
+                        <article class="experience-detail">
+                            <h3>Ejecutivo Comercial</h3>
+                            <p class="experience-detail-meta">Servientrega S.A. | Junio 2006 - Agosto 2007 (1 año 2 meses) | Armenia, Quindío</p>
+                            <ul class="experience-tasks">
+                                <li>Captación de clientes corporativos en la región del Eje Cafetero</li>
+                                <li>Cumplimiento de metas comerciales y retención de clientes</li>
+                                <li>Reporte de ventas y análisis de indicadores comerciales</li>
+                            </ul>
+                        </article>
+                        <article class="experience-detail">
+                            <h3>Administrador de Zona</h3>
+                            <p class="experience-detail-meta">EVE Distribuciones S.A. | Agosto 2007 - Marzo 2008 (7 meses) | Armenia, Quindío</p>
+                            <ul class="experience-tasks">
+                                <li>Control de personal, ventas e inventarios en puntos farmacéuticos</li>
+                            </ul>
+                        </article>
+                        <article class="experience-detail">
+                            <h3>Coordinador Logístico de Despachos</h3>
+                            <p class="experience-detail-meta">Textrón S.A. | Marzo 2009 - Mayo 2009 (3 meses) | Bogotá D.C.</p>
+                            <ul class="experience-tasks">
+                                <li>Coordinación de despachos de carga nacional</li>
+                            </ul>
+                        </article>
+                    </template>
+                </li>
+                <li class="experience-entry">
+                    <button class="experience-card" type="button" data-experience-trigger aria-haspopup="dialog" aria-controls="experience-dialog" data-title="Asesor Comercial Inmobiliario" data-company="Araujo &amp; Segovia S.A." data-period="Noviembre 2009 - Febrero 2013">
+                        <span class="experience-card-copy">
+                            <span class="experience-card-title">Asesor Comercial Inmobiliario</span>
+                            <span class="experience-card-company">Araujo &amp; Segovia S.A.</span>
+                            <span class="experience-card-period">Noviembre 2009 - Febrero 2013</span>
+                        </span>
+                        <span class="experience-indicator" aria-hidden="true">+</span>
+                    </button>
+                    <template>
+                        <article class="experience-detail">
+                            <h3>Asesor Comercial Inmobiliario</h3>
+                            <p class="experience-detail-meta">Montería, Córdoba | Noviembre 2009 - Febrero 2013 (4 años 3 meses)</p>
+                            <ul class="experience-tasks">
+                                <li>Prospección, captación y cierre de ventas de inmuebles</li>
+                                <li>Identificación y selección de propiedades para venta y arrendamiento</li>
+                                <li>Mejor vendedor en múltiples períodos consecutivos</li>
+                                <li>Asesoramiento jurídico y técnico a clientes en procesos de cierre</li>
+                                <li>Gestión de proyectos residenciales y comerciales</li>
+                            </ul>
+                        </article>
+                    </template>
+                </li>
+                <li class="experience-entry">
+                    <button class="experience-card" type="button" data-experience-trigger aria-haspopup="dialog" aria-controls="experience-dialog" data-title="Gerente de Oficina y Socio" data-company="Century 21 Metrosabana y C21 Cartagena" data-period="Abril 2013 - Diciembre 2015">
+                        <span class="experience-card-copy">
+                            <span class="experience-card-title">Gerente de Oficina y Socio</span>
+                            <span class="experience-card-company">Century 21 Metrosabana y C21 Cartagena</span>
+                            <span class="experience-card-period">Abril 2013 - Diciembre 2015</span>
+                        </span>
+                        <span class="experience-indicator" aria-hidden="true">+</span>
+                    </button>
+                    <template>
+                        <article class="experience-detail">
+                            <h3>Gerente de Oficina y Socio</h3>
+                            <p class="experience-detail-meta">Montería, Córdoba | Abril 2013 - Diciembre 2015 (2 años 9 meses)</p>
+                            <ul class="experience-tasks">
+                                <li>Montaje y administración de oficina inmobiliaria franquiciada</li>
+                                <li>Capacitación y motivación de agentes inmobiliarios para cumplimiento de metas</li>
+                                <li>Control de inventarios de propiedades en venta y seguimiento de cierres</li>
+                                <li>Gestión de proyectos inmobiliarios con constructoras locales</li>
+                                <li>Avalúos urbanos y consultoría en transacciones inmobiliarias</li>
+                                <li>Apertura de 5 oficinas inmobiliarias C21</li>
+                                <li>Capacitador de más de 60 agentes y director de 2 agencias de bienes raíces</li>
+                            </ul>
+                        </article>
+                    </template>
+                </li>
+                <li class="experience-entry">
+                    <button class="experience-card" type="button" data-experience-trigger aria-haspopup="dialog" aria-controls="experience-dialog" data-title="CEO Proptech" data-company="Houssit (Plataforma de bienes raíces)" data-period="Agosto 2017 - Junio 2018">
+                        <span class="experience-card-copy">
+                            <span class="experience-card-title">CEO Proptech</span>
+                            <span class="experience-card-company">Houssit (Plataforma de bienes raíces)</span>
+                            <span class="experience-card-period">Agosto 2017 - Junio 2018</span>
+                        </span>
+                        <span class="experience-indicator" aria-hidden="true">+</span>
+                    </button>
+                    <template>
+                        <article class="experience-detail">
+                            <h3>CEO Proptech</h3>
+                            <p class="experience-detail-meta">Montería, Colombia | Agosto 2017 - Junio 2018 (10 meses)</p>
+                            <ul class="experience-tasks">
+                                <li>Fundación y dirección ejecutiva de plataforma inmobiliaria digital (Proptech)</li>
+                                <li>Desarrollo de estrategias de captación de leads y optimización de conversiones</li>
+                                <li>Gestión de equipo multidisciplinario para desarrollo y operación de plataforma</li>
+                                <li>Implementación de soluciones de automatización e integración con IA</li>
+                                <li>Creación de contenido visual: videos con drones, fotografía y edición profesional</li>
+                            </ul>
+                        </article>
+                    </template>
+                </li>
+                <li class="experience-entry">
+                    <button class="experience-card" type="button" data-experience-trigger aria-haspopup="dialog" aria-controls="experience-dialog" data-title="Agente Inmobiliario Independiente y Diseñador de Websites" data-company="Eje Habitat | Bigermark" data-period="Febrero 2020 - Hoy">
+                        <span class="experience-card-copy">
+                            <span class="experience-card-title">Agente Inmobiliario Independiente y Diseñador de Websites</span>
+                            <span class="experience-card-company">Eje Habitat | Bigermark</span>
+                            <span class="experience-card-period">Febrero 2020 - Hoy</span>
+                        </span>
+                        <span class="experience-indicator" aria-hidden="true">+</span>
+                    </button>
+                    <template>
+                        <article class="experience-detail">
+                            <h3>Agente Inmobiliario Independiente y Diseñador de Websites</h3>
+                            <p class="experience-detail-meta">Eje Habitat | Bigermark | Pereira, Risaralda, Colombia | Febrero 2020 - Hoy (5 años)</p>
+                            <ul class="experience-tasks">
+                                <li>Consultoría en gestión de leads, automatización de agentes (chatbot con IA) y diseño de sitios web</li>
+                                <li>Creación y gestión de plataforma web para promoción de inmuebles</li>
+                                <li>Captación de compradores mediante campañas, visitas y estrategias de marketing usando IA</li>
+                                <li>Creación de contenido para uso en redes sociales</li>
+                                <li>Integración de herramientas de CRM, chatbots y automatización con IA</li>
+                                <li>Generación de embudos de ventas y optimización de tasas de conversión</li>
+                                <li>Venta de propiedades residenciales y comerciales en la región del Eje Cafetero</li>
+                                <li>Asesoría a vendedores y compradores en procesos de transacción inmobiliaria</li>
+                                <li>Alianzas estratégicas con partners inmobiliarios locales</li>
+                                <li>Marketing y posicionamiento de propiedades en plataformas digitales</li>
+                            </ul>
+                        </article>
+                    </template>
+                </li>
+            </ul>
+            <dialog class="experience-modal" id="experience-dialog" aria-labelledby="experience-dialog-title">
+                <div class="experience-modal-header">
+                    <div>
+                        <h2 class="experience-modal-title" id="experience-dialog-title"></h2>
+                        <p class="experience-modal-company" id="experience-dialog-company"></p>
+                        <p class="experience-modal-period" id="experience-dialog-period"></p>
+                    </div>
+                    <button class="experience-modal-close" type="button" aria-label="Cerrar detalles de experiencia" autofocus>&times;</button>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Ago 2017 - Jun 2018</div>
-                    <div class="timeline-company">CEO Proptech | Houssit</div>
-                    <div class="timeline-role">Montería, Colombia</div>
-                    <ul class="timeline-tasks">
-                        <li>Fundación y dirección ejecutiva de plataforma inmobiliaria digital (proptech)</li>
-                        <li>Desarrollo de estrategias de captación de leads y optimización de conversiones</li>
-                        <li>Gestión de equipo multidisciplinario para desarrollo y operación de plataforma</li>
-                        <li>Implementación de soluciones de automatización e integración con IA</li>
-                        <li>Creación de contenido visual: videos con drones, fotografía y edición profesional</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Abr 2013 - Dic 2015</div>
-                    <div class="timeline-company">Gerente de Oficina y Socio | Century 21 Metrosabana y C21 Cartagena</div>
-                    <div class="timeline-role">Montería, Córdoba</div>
-                    <ul class="timeline-tasks">
-                        <li>Montaje y administración de oficina inmobiliaria franquiciada</li>
-                        <li>Capacitación y motivación de agentes inmobiliarios para cumplimiento de metas</li>
-                        <li>Control de inventarios de propiedades en venta y seguimiento de cierres</li>
-                        <li>Gestión de proyectos inmobiliarios con constructoras locales</li>
-                        <li>Avalúos urbanos y consultoría en transacciones inmobiliarias</li>
-                        <li>Apertura de 5 oficinas inmobiliarias C21</li>
-                        <li>Capacitador de +60 agentes y director de 2 agencias de bienes raíces</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Nov 2009 - Feb 2013</div>
-                    <div class="timeline-company">Asesor Comercial Inmobiliario | Araujo & Segovia S.A.</div>
-                    <div class="timeline-role">Montería, Córdoba</div>
-                    <ul class="timeline-tasks">
-                        <li>Prospección, captación y cierre de ventas de inmuebles</li>
-                        <li>Identificación y selección de propiedades para venta y arrendamiento</li>
-                        <li>Mejor vendedor en múltiples períodos consecutivos</li>
-                        <li>Asesoramiento jurídico y técnico a clientes en procesos de cierre</li>
-                        <li>Gestión de proyectos residenciales y comerciales</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Mar 2009 - May 2009</div>
-                    <div class="timeline-company">Coordinador Logístico de Despachos | Textrón S.A.</div>
-                    <div class="timeline-role">Bogotá D.C.</div>
-                    <ul class="timeline-tasks">
-                        <li>Coordinación de despachos de carga nacional</li>
-                    </ul>
-                </div>
-            </div>
+                <div class="experience-modal-content" id="experience-dialog-content"></div>
+            </dialog>
+            <script>
+                (() => {
+                    const experienceSection = document.getElementById('experience');
+                    const experienceDialog = experienceSection.querySelector('#experience-dialog');
+                    const experienceList = experienceSection.querySelector('.experience-list');
+                    const closeButton = experienceDialog.querySelector('.experience-modal-close');
+                    const title = experienceDialog.querySelector('#experience-dialog-title');
+                    const company = experienceDialog.querySelector('#experience-dialog-company');
+                    const period = experienceDialog.querySelector('#experience-dialog-period');
+                    const content = experienceDialog.querySelector('#experience-dialog-content');
+
+                    Array.from(experienceList.children).reverse().forEach(entry => experienceList.append(entry));
+
+                    experienceList.addEventListener('click', event => {
+                        const trigger = event.target.closest('[data-experience-trigger]');
+                        if (!trigger || !experienceList.contains(trigger)) return;
+
+                        const template = trigger.parentElement.querySelector('template');
+                        title.textContent = trigger.dataset.title;
+                        company.textContent = trigger.dataset.company;
+                        period.textContent = trigger.dataset.period;
+                        content.replaceChildren(template.content.cloneNode(true));
+                        experienceDialog.showModal();
+                    });
+
+                    closeButton.addEventListener('click', () => experienceDialog.close());
+                    experienceDialog.addEventListener('click', event => {
+                        if (event.target === experienceDialog) experienceDialog.close();
+                    });
+                })();
+            </script>
         </section>
 
         <section id="skills" class="section">
@@ -854,7 +1129,7 @@
 
         <section id="projects" class="section">
             <h2 class="section-title">
-                <i class="fas fa-project-diagram"></i> Proyectos Destacados
+                <i class="fas fa-project-diagram"></i> Proyectos Recientes
             </h2>
             <div class="projects-grid">
                 <div class="project-card">
