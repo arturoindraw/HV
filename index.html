@@ -243,6 +243,31 @@
             margin: 0 auto;
         }
 
+        .about-img .availability-cta {
+            align-items: center;
+            background: #25d366;
+            border-radius: 8px;
+            color: #0f172a;
+            display: inline-flex;
+            font-weight: 600;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+            padding: 0.75rem 1.25rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .about-img .availability-cta:hover {
+            background: #1fbd5b;
+            transform: translateY(-2px);
+        }
+
+        .about-img .availability-cta:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+        }
+
         @media (max-width: 768px) {
             .about-content {
                 grid-template-columns: 1fr;
@@ -809,6 +834,9 @@
                 <div class="about-img">
                     <img class="about-photo" src="carlos-arturo.png" alt="Carlos Arturo Rodriguez">
                     <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.875rem;">Consultor de Transformación Digital | IA &amp; Automatización | AI Dev | Real Estate</p>
+                    <a class="availability-cta" href="https://wa.me/573122977712" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Estoy Disponible
+                    </a>
                 </div>
             </div>
         </section>
@@ -1190,7 +1218,7 @@
                     <i class="fas fa-phone"></i>
                     <div>
                         <a href="tel:+573122977712">+57 312 297 7712</a>
-                        <p>Línea directa</p>
+                        <p>Celular / WhatsApp</p>
                     </div>
                 </div>
                 <div class="contact-method">
