@@ -623,6 +623,31 @@
             gap: 0.5rem;
         }
 
+        .project-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+            padding: 0.625rem 1rem;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--text);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .project-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .project-cta:focus-visible {
+            outline: 2px solid var(--text);
+            outline-offset: 3px;
+        }
+
         .project-tag {
             background: var(--border);
             padding: 0.25rem 0.75rem;
@@ -1171,6 +1196,7 @@
                             <span class="project-tag">CRM</span>
                             <span class="project-tag">IA</span>
                         </div>
+                        <a class="project-cta" href="https://app-landing-zeta-five.vercel.app/" target="_blank" rel="noopener noreferrer">Servicios</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -1185,6 +1211,7 @@
                             <span class="project-tag">n8n</span>
                             <span class="project-tag">IA</span>
                         </div>
+                        <a class="project-cta" href="https://arturoindraw.github.io/Cotizador-SitiosWeb/" target="_blank" rel="noopener noreferrer">Servicios</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -1199,6 +1226,7 @@
                             <span class="project-tag">Adobe Suite</span>
                             <span class="project-tag">Drone</span>
                         </div>
+                        <a class="project-cta" href="https://www.behance.net/carlosbigermark" target="_blank" rel="noopener noreferrer">Servicios</a>
                     </div>
                 </div>
             </div>
